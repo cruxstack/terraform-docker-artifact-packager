@@ -82,15 +82,15 @@ following tools:
 
 1. Clone this repository:
 
-```bash
-git clone https://github.com/sgtoj/terraform-docker-artifact-packager.git
-```
+    ```bash
+    git clone https://github.com/sgtoj/terraform-docker-artifact-packager.git
+    ```
 
 2. Open the repository in Visual Studio Code:
 
-```bash
-code terraform-docker-artifact-packager
-```
+    ```bash
+    code terraform-docker-artifact-packager
+    ```
 
 3. When prompted to "Reopen in Container", click "Reopen in Container". This
    will start building the Docker image for the development container. If you're
