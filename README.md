@@ -53,8 +53,6 @@ for more details on these variables.
 |-------------------------|------------------------------------------------|
 | `artifact_package_path` | The local path where the artifact is copied to |
 
-Yes, it's a good practice to include information about the development container in your repository, especially if you expect other developers to contribute to the project or if you want to provide a consistent development environment for anyone who clones the repository. You can add a section to your README file about the devcontainer setup. Here's an example of how you can add this information:
-
 ## Development Environment
 
 This repository includes a configuration for a development container using the
