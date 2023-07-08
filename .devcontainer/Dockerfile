@@ -29,7 +29,6 @@ RUN SYSTEM_ARCH=$(dpkg --print-architecture) \
     && terraform version \
     && rm terraform_${TERRAFORM_VERSION}_linux_${SYSTEM_ARCH}.zip
 
-
 # Verify that everything was installed correctly
 RUN terraform --version \
     && aws --version \
