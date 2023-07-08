@@ -23,7 +23,8 @@
       "extensions": [
         "dbaeumer.vscode-eslint",
         "editorconfig.editorconfig",
-        "GitHub.copilot",
+        "github.copilot",
+        "github.vscode-github-actions",
         "hashicorp.terraform",
         "ms-azuretools.vscode-docker",
         "VisualStudioExptTeam.vscodeintellicode",
