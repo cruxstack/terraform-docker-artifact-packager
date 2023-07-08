@@ -1,0 +1,7 @@
+{
+  "name": "echo-app",
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.119",
+    "typescript": "^5.1.6"
+  }
+}
