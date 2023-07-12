@@ -55,56 +55,8 @@ for more details on these variables.
 |-------------------------|------------------------------------------------|
 | `artifact_package_path` | The local path where the artifact is copied to |
 
-## Development Environment
+## Contributing
 
-This repository includes a configuration for a development container using the
-[VS Code Remote - Containers extension](https://code.visualstudio.com/docs/remote/containers).
-This setup allows you to develop within a Docker container that already has all
-the necessary tools and dependencies installed.
-
-The development container is based on Ubuntu 20.04 (Focal) and includes the
-following tools:
-
-- AWS CLI
-- Node.js
-- TypeScript
-- Docker CLI
-- Terraform
-
-### Prerequisites
-
-- [Docker](https://www.docker.com/products/docker-desktop) installed on your
-  local machine.
-- [Visual Studio Code](https://code.visualstudio.com/) installed on your
-  local machine.
-- [Remote - Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
-  for Visual Studio Code.
-
-### Usage
-
-1. Clone this repository:
-
-    ```bash
-    git clone https://github.com/sgtoj/terraform-docker-artifact-packager.git
-    ```
-
-2. Open the repository in Visual Studio Code:
-
-    ```bash
-    code terraform-docker-artifact-packager
-    ```
-
-3. When prompted to "Reopen in Container", click "Reopen in Container". This
-   will start building the Docker image for the development container. If you're
-   not prompted, you can open the Command Palette (F1 or Ctrl+Shift+P), and run
-   the "Remote-Containers: Reopen Folder in Container" command.
-
-4. After the development container is built and started, you can use the
-   Terminal in Visual Studio Code to interact with the container. All commands
-  you run in the Terminal will be executed inside the container.
-
-### Troubleshooting
-
-If you encounter any issues while using the development container, you can try
-rebuilding the container. To do this, open the Command Palette and run the
-"Remote-Containers: Rebuild Container" command.
+We welcome contributions to this project. For information on setting up a
+development environment and how to make a contribution, see [CONTRIBUTING](./CONTRIBUTING.md)
+documentation.
