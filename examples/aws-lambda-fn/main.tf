@@ -1,5 +1,5 @@
 module "packager" {
-  source = "../"
+  source = "../../"
 
   artifact_src_path    = "/tmp/package.zip"
   docker_build_context = "${path.module}/fixures/echo-app"

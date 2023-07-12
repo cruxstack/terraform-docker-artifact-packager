@@ -3,6 +3,17 @@ variable "artifact_src_path" {
   description = "The path in the Docker container from which to copy the artifact."
 }
 
+variable "artifact_src_type" {
+  type        = string
+  description = "The type of artifact to copy. Accepts 'zip' or 'directory'."
+  default     = "zip"
+
+  validation {
+    condition     = var.artifact_src_type == "zip" || var.artifact_src_type == "directory"
+    error_message = "The `artifact_src_type` variable must be set to either 'zip' or 'directory'."
+  }
+}
+
 variable "artifact_dst_directory" {
   type        = string
   description = "The destination directory on the host machine to which the artifact will be copied."
