@@ -45,6 +45,7 @@ for more details on these variables.
 | `docker_build_args`      | Additional arguments to pass to Docker during the build process.                    | `map(string)` |  `{}`   |    no    |
 | `artifact_dst_directory` | The destination directory on the host machine to which the artifact will be copied. |   `string`    |   ""    |    no    |
 | `artifact_src_path`      | The path in the Docker container from which to copy the artifact.                   |   `string`    |   n/a   |   yes    |
+| `artifact_src_type`      | "The type of artifact to copy. Accepts 'zip' or 'directory'."                       |   `string`    |  `zip`  |    no    |
 | `force_rebuild_id`       | A unique identifier that, when changed, will force the Docker image to be rebuilt.  |   `string`    |   ""    |    no    |
 | `os_compatibility`       | The operating system of Terrafrom environment. Accepts 'unix' or 'windows'.         |   `string`    | `unix`  |    no    |
 
