@@ -1,4 +1,4 @@
-# Terraform Docker Artifact Packager Module
+# Terraform Module: Docker Artifact Packager
 
 This Terraform module provides a reusable, customizable solution for building
 Docker images and extracting artifacts from them.
@@ -15,7 +15,7 @@ Docker images and extracting artifacts from them.
 
 ```hcl
 module "docker_builder" {
-  source = "github.com/sgtoj/terraform-docker-artifact-packager.git?ref=main"
+  source = "sgtoj/artifact-packager/docker"
 
   docker_build_context = "${path.module}/example/aws-lambda-fn/fixures/echo-app"
   docker_build_target  = "package"
