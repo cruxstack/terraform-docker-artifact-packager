@@ -6,8 +6,13 @@ locals {
 
   artifact_id       = try(random_string.this[0].id, "unknown")
   artifact_dst_dir  = var.artifact_dst_directory == "" ? "${path.module}/dist" : var.artifact_dst_directory
-  artifact_dst_path = abspath("${local.artifact_dst_dir}/${module.artifact_label.id}-${local.artifact_id}.zip")
+  artifact_dst_path = abspath("${local.artifact_dst_dir}/${module.artifact_label.id}-${local.artifact_id}${local.artifact_type_dst_suffix_map[var.artifact_src_type]}")
   artifact_src_path = var.artifact_src_path
+
+  artifact_type_dst_suffix_map = {
+    zip       = ".zip"
+    directory = "/"
+  }
 
   os_script_map = {
     windows = <<-EOT
@@ -31,7 +36,7 @@ module "artifact_label" {
   source  = "cloudposse/label/null"
   version = "0.25.0"
 
-  name        = var.name == "" ? "artifact" : var.name
+  name        = coalesce(module.this.name, var.name, "artifact")
   label_order = ["name", "attributes"]
   context     = module.this.context
 }
