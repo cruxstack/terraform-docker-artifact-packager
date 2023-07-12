@@ -5,7 +5,8 @@ locals {
   source_path = local.docker_build_context
 
   artifact_id       = try(random_string.this[0].id, "unknown")
-  artifact_dst_path = abspath("${path.module}/dist/${module.artifact_label.id}-${local.artifact_id}.zip")
+  artifact_dst_dir  = var.artifact_dst_directory == "" ? "${path.module}/dist" : var.artifact_dst_directory
+  artifact_dst_path = abspath("${local.artifact_dst_dir}/${module.artifact_label.id}-${local.artifact_id}.zip")
   artifact_src_path = var.artifact_src_path
 
   os_script_map = {
