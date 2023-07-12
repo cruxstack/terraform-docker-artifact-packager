@@ -38,14 +38,15 @@ for more details on these variables.
 
 ## Inputs
 
-| Name                   | Description                                                                        | Type          | Default | Required |
-|------------------------|------------------------------------------------------------------------------------|:-------------:|:-------:|:--------:|
-| `docker_build_context` | The context to use when building the Docker image.                                 | `string`      | n/a     | yes      |
-| `docker_build_target`  | The target to use when building the Docker image.                                  | `string`      | n/a     | yes      |
-| `docker_build_args`    | Additional arguments to pass to Docker during the build process.                   | `map(string)` | `{}`    | no       |
-| `artifact_src_path`    | The path in the Docker container from which to copy the artifact.                  | `string`      | n/a     | yes      |
-| `force_rebuild_id`     | A unique identifier that, when changed, will force the Docker image to be rebuilt. | `string`      | ""      | no       |
-| `os_compatibility`     | The operating system of Terrafrom environment. Accepts 'unix' or 'windows'.        | `string`      | `unix`  | no       |
+| Name                     | Description                                                                         |     Type      | Default | Required |
+|--------------------------|-------------------------------------------------------------------------------------|:-------------:|:-------:|:--------:|
+| `docker_build_context`   | The context to use when building the Docker image.                                  |   `string`    |   n/a   |   yes    |
+| `docker_build_target`    | The target to use when building the Docker image.                                   |   `string`    |   n/a   |   yes    |
+| `docker_build_args`      | Additional arguments to pass to Docker during the build process.                    | `map(string)` |  `{}`   |    no    |
+| `artifact_dst_directory` | The destination directory on the host machine to which the artifact will be copied. |   `string`    |   ""    |    no    |
+| `artifact_src_path`      | The path in the Docker container from which to copy the artifact.                   |   `string`    |   n/a   |   yes    |
+| `force_rebuild_id`       | A unique identifier that, when changed, will force the Docker image to be rebuilt.  |   `string`    |   ""    |    no    |
+| `os_compatibility`       | The operating system of Terrafrom environment. Accepts 'unix' or 'windows'.         |   `string`    | `unix`  |    no    |
 
 ## Outputs
 
