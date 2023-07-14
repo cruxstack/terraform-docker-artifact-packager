@@ -11,7 +11,7 @@ locals {
   }
 }
 
-module "artifact_builder" {
+module "artifact_packager" {
   source = "../../"
 
   docker_build_context   = "${path.module}/fixtures/website"
@@ -37,11 +37,11 @@ resource "aws_s3_bucket" "website_bucket" {
 }
 
 resource "aws_s3_bucket_object" "website_files" {
-  for_each = fileset(module.artifact_builder.artifact_dst_directory, "**/*")
+  for_each = fileset(module.artifact_packager.artifact_dst_directory, "**/*")
 
   bucket       = aws_s3_bucket.website_bucket.bucket
   key          = each.value
-  source       = "${module.artifact_builder.artifact_dst_directory}/${each.value}"
+  source       = "${module.artifact_packager.artifact_dst_directory}/${each.value}"
   content_type = lookup(local.mime_types, regex("\\.[^.]+$", each.value), "binary/octet-stream")
   acl          = "public-read"
 }
