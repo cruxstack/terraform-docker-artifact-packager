@@ -1,5 +1,6 @@
 # .gitignore
 tmp/
+!**/.gitkeep
 
 # terraform files
 *.tfstate
