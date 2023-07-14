@@ -14,7 +14,7 @@ Docker images and extracting artifacts from them.
 ## Usage
 
 ```hcl
-module "docker_builder" {
+module "artifact_packager" {
   source  = "sgtoj/artifact-packager/docker"
   version = "x.x.x"
 
