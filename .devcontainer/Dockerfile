@@ -7,7 +7,7 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-# Install Node.js and npm
+# Install Node.js
 ENV NODE_VERSION=18.x
 RUN curl -sL https://deb.nodesource.com/setup_${NODE_VERSION} | bash - && \
     apt-get install -y nodejs
