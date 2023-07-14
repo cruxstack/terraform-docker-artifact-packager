@@ -15,11 +15,11 @@ Docker images and extracting artifacts from them.
 
 ```hcl
 module "docker_builder" {
-  source = "sgtoj/artifact-packager/docker"
+  source  = "sgtoj/artifact-packager/docker"
+  version = "x.x.x"
 
   docker_build_context = "${path.module}/example/aws-lambda-fn/fixures/echo-app"
   docker_build_target  = "package"
-  docker_build_args    = {}
   artifact_src_path    = "/tmp/package.zip"
 }
 ```
