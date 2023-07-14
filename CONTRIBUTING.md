@@ -18,7 +18,6 @@ following tools:
 - TypeScript
 - Docker CLI
 - Terraform
-- Open Policy Agent
 
 ### Prerequisites
 
