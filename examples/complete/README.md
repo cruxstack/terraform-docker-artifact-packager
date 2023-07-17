@@ -1,6 +1,6 @@
 # Terraform Module Example
 
-## AWS Lambda Function
+## Complete Example
 
 This is an example of using the Terraform Docker Artifact Package module to
 package a TypeScript app into a Docker image, extract the compiled JavaScript
