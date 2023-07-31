@@ -15,7 +15,7 @@ Docker images and extracting artifacts from them.
 
 ```hcl
 module "artifact_packager" {
-  source  = "sgtoj/artifact-packager/docker"
+  source  = "cruxstack/artifact-packager/docker"
   version = "x.x.x"
 
   docker_build_context = "${path.module}/example/aws-lambda-fn/fixures/echo-app"
@@ -51,9 +51,9 @@ for more details on these variables.
 
 ## Outputs
 
-| Name                    | Description                                    |
-|-------------------------|------------------------------------------------|
-| `artifact_package_path` | The local path where the artifact is copied to |
+| Name                    | Description                                |
+|-------------------------|--------------------------------------------|
+| `artifact_package_path` | The local path where the artifact located. |
 
 ## Contributing
 
