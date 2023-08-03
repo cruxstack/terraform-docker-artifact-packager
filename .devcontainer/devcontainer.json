@@ -5,7 +5,7 @@
     "ghcr.io/devcontainers/features/docker-in-docker:2.0.1": {},
   },
   "mounts": [
-    "source=${localEnv:HOME}/.aws,target=${env:HOME}/.aws,type=bind,consistency=cached"
+    "source=${localEnv:HOME}/.aws,target=/home/vscode/.aws,type=bind,consistency=cached"
   ],
   "containerEnv": {
     "TF_PLUGIN_CACHE_DIR": "/workspaces/terraform-docker-artifact-packager/.devcontainer/tmp/.terraform.d/"
