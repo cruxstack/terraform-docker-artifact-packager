@@ -1,7 +1,8 @@
 # Terraform Module: Docker Artifact Packager
 
 This Terraform module provides a reusable, customizable solution for building
-Docker images and extracting artifacts from them.
+Docker images and extracting artifacts from them. This utility module builds
+artifacts with docker to prevent polluting host environment.
 
 ## Features
 
@@ -18,25 +19,18 @@ module "artifact_packager" {
   source  = "cruxstack/artifact-packager/docker"
   version = "x.x.x"
 
-  docker_build_context = "${path.module}/example/aws-lambda-fn/fixures/echo-app"
+  docker_build_context = "${path.module}/examples/aws-lambda-fn/fixures/echo-app"
   docker_build_target  = "package"
   artifact_src_path    = "/tmp/package.zip"
 }
 ```
 
-### Note
-
-This module uses the `cloudposse/label/null` module for naming and tagging
-resources. As such, it also includes a `context.tf` file with additional
-optional variables you can set. Refer to the [`cloudposse/label` documentation](https://registry.terraform.io/modules/cloudposse/label/null/latest)
-for more details on these variables.
-
-## Requirements
-
-- Terraform 0.13 and above
-- Docker installed and running on the machine where Terraform is executed
-
 ## Inputs
+
+In addition to the variables documented below, this module includes several
+other optional variables (e.g., `name`, `tags`, etc.) provided by the
+`cloudposse/label/null` module. Please refer to the [`cloudposse/label` documentation](https://registry.terraform.io/modules/cloudposse/label/null/latest) for more details on these variables.
+
 
 | Name                     | Description                                                                         |     Type      | Default | Required |
 |--------------------------|-------------------------------------------------------------------------------------|:-------------:|:-------:|:--------:|
