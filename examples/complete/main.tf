@@ -1,5 +1,5 @@
 locals {
-  tags = { tf-module = "cruxstack/yopass/aws", tf-module-example = "complete" }
+  tags = { tf-module = "cruxstack/artifact-packager/docker", tf-module-example = "complete" }
 }
 
 module "artifact_packager" {
