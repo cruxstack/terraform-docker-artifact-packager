@@ -1,14 +1,18 @@
-FROM mcr.microsoft.com/vscode/devcontainers/base:1-focal
+FROM mcr.microsoft.com/devcontainers/base:jammy
+
+RUN apt update && apt install -y \
+    vim
 
 # install aws
-RUN apt-get update && \
-    apt-get install -y unzip python3-pip && \
-    pip3 install --no-cache-dir --upgrade awscli && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+RUN SYSTEM_ARCH=$(uname -m) \
+    && curl "https://awscli.amazonaws.com/awscli-exe-linux-${SYSTEM_ARCH}-2.13.33.zip" -o "awscliv2.zip" \
+    && unzip -qq awscliv2.zip \
+    && aws/install \
+    && aws --version \
+    && rm -rf aws
 
 # install terraform
-ENV TERRAFORM_VERSION=1.5.1
+ENV TERRAFORM_VERSION=1.6.6
 ENV TF_PLUGIN_CACHE_DIR=$HOME/.terraform.d/plugin-cache
 RUN mkdir -p $TF_PLUGIN_CACHE_DIR
 RUN SYSTEM_ARCH=$(dpkg --print-architecture) \
@@ -21,8 +25,6 @@ RUN SYSTEM_ARCH=$(dpkg --print-architecture) \
 # install tflint
 RUN curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash
 
-# install docker
-COPY --from=docker:dind /usr/local/bin/docker /usr/local/bin/
 
 # install node.js
 ENV NODE_VERSION=18.x
@@ -32,10 +34,3 @@ RUN curl -sL https://deb.nodesource.com/setup_${NODE_VERSION} | bash - && \
 # install typescript
 RUN npm install -g typescript
 
-# verify installs
-RUN terraform --version \
-    && aws --version \
-    && node --version \
-    && npm --version \
-    && tsc --version \
-    && docker --version
