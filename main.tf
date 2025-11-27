@@ -78,7 +78,7 @@ resource "random_string" "this" {
   keepers = {
     artifact_sha      = data.archive_file.this[0].output_sha
     docker_build_args = jsonencode(var.docker_build_args)
-    force_rebuild_id  = var.force_rebuild_id
+    force_rebuild_id  = coalesce(var.force_rebuild_id, timestamp())
   }
 }
 
