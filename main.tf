@@ -78,7 +78,7 @@ resource "random_string" "this" {
   keepers = {
     artifact_sha      = data.archive_file.this[0].output_sha
     docker_build_args = jsonencode(var.docker_build_args)
-    force_rebuild_id  = coalesce(var.force_rebuild_id, timestamp())
+    force_rebuild_id  = var.force_rebuild_id
   }
 }
 
@@ -86,8 +86,9 @@ resource "null_resource" "this" {
   count = module.artifact_label.enabled ? 1 : 0
 
   triggers = {
-    artifact_image = docker_image.this[0].image_id
-    artifact_path  = local.artifact_dst_path
+    artifact_image  = docker_image.this[0].image_id
+    artifact_path   = local.artifact_dst_path
+    artifact_exists = local.artifact_dst_path != null ? fileexists(local.artifact_dst_path) : false
   }
 
   provisioner "local-exec" {
